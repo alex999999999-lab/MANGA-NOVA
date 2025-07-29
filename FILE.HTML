@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MANGA‑NOVA</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">MANGA‑NOVA</div>
+    <nav>
+      <button id="btnChList">📚 قائمة الفصول</button>
+      <button id="btnPrev">⬅️ السابق</button>
+      <button id="btnNext">➡️ التالي</button>
+      <button id="btnLogin">🔑 تسجيل / دخول</button>
+      <button id="btnAdmin">🛠️ الإدارة</button>
+    </nav>
+  </header>
+
+  <!-- إعلان ثابت في الأعلى -->
+  <div class="banner-ad">
+    <!-- مكان إعلان ثابت يمكن تخصيصه -->
+    <iframe src="your-banner-ad-link.html" frameborder="0"></iframe>
+  </div>
+
+  <section id="chapter-list" class="modal hidden">
+    <div class="modal-content">
+      <h2>كل الفصول</h2>
+      <ul id="chapterLinks"></ul>
+      <button class="close" onclick="toggleChapterList()">✖️</button>
+    </div>
+  </section>
+
+  <main>
+    <section id="reader">
+      <!-- كل صفحة كن div.page -->
+      <div class="page" data-page="1" ondblclick="handleDoubleClick(this)">
+        <img src="images/ch1-p1.jpg"/>
+      </div>
+      <div class="page" data-page="2" ondblclick="handleDoubleClick(this)">
+        <img src="images/ch1-p2.jpg"/>
+      </div>
+      <!-- أكثر حسب الحاجة -->
+    </section>
+
+    <section id="comments">
+      <h3>💬 تعليقات</h3>
+      <div id="commentsList"></div>
+      <textarea id="commentText" placeholder="أضف تعليقك..."></textarea>
+      <button onclick="postComment()">نشر</button>
+    </section>
+  </main>
+
+  <!-- إعلان منبثق -->
+  <div id="adPopup" class="popup hidden">
+    <p>🔔 إعلان منبثق! انقر لإغلاق.</p>
+    <button onclick="closeAd()">إغلاق</button>
+  </div>
+
+  <footer>
+    <p>جميع الحقوق محفوظة © MANGA‑NOVA | <a href="#" onclick="openEditor()">🖊️ تعديل المحتوى</a></p>
+  </footer>
+
+  <!-- محرر إداري بسيط -->
+  <div id="adminEditor" class="modal hidden">
+    <div class="modal-content">
+      <h2>محرر الفصل</h2>
+      <textarea id="chapterEditor" rows="10" style="width:100%"></textarea>
+      <button onclick="saveEdit()">💾 حفظ</button>
+      <button class="close" onclick="closeEditor()">✖️</button>
+    </div>
+  </div>
+</body>
+</html>
